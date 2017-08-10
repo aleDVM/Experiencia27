@@ -6,6 +6,7 @@
   <tr>
     <td>Categoria</td>
     <td>Cantidad de producto</td>
+    <td>Cantidad de producto</td>
     <td></td>
     <td></td>
   </tr>
@@ -14,6 +15,12 @@
     <tr>
       <td> <%=link_to category.name, category_path(category)%></td>
       <td><%= category.products.count%></td>
+
+    <%=@co_hash.each do |e|%>
+      <%if category.name == e[0]%>
+        <td><%=e[1]%></td>
+      <%end%>
+    <%end%>
       <td>
         <button type="button" class="btn btn-warning">
           <%= link_to 'Editar', edit_category_path(category) %>

@@ -4,11 +4,14 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-
     @categories = Category.all
     @count = Product.group(:category).count
-    @d = @count.map do |k, v|
-      v
+    @d = @count.map{|k, v| v }
+    @w = @count.map {|k, v| k[:name]}
+    @co_hash = {}
+    @w.each do |w|
+      w_index = @w.index(w)
+      @co_hash[w] = @d[w_index]
     end
   end
 
