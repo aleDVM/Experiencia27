@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table class="table">
+  <tr>
+    <td>Categoria</td>
+    <td>Cantidad de producto</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <% @categories.each do |category|%>
+    <tr>
+      <td> <%=link_to category.name, category_path(category)%></td>
+      <td><%= category.products.count%></td>
+      <td>
+        <button type="button" class="btn btn-warning">
+          <%= link_to 'Editar', edit_category_path(category) %>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger">
+          <%= link_to 'Eliminar', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </button>
+      </td>
+    </tr>
+
+    <%end%>
+</table>
+<br>
