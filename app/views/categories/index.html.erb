@@ -16,7 +16,7 @@
       <td> <%=link_to category.name, category_path(category)%></td>
       <td><%= category.products.count%></td>
 
-    <%=@co_hash.each do |e|%>
+    <%@co_hash.each do |e|%>
       <%if category.name == e[0]%>
         <td><%=e[1]%></td>
       <%end%>
